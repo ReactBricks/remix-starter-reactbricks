@@ -1,10 +1,10 @@
 import { types } from 'react-bricks/frontend'
 
-// Example custom brick
-import MyHeroUnit from './HeroUnit'
+// Example brick
+import HeroUnit from './HeroUnit'
 
 const bricks: types.Brick<any>[] = [
-  MyHeroUnit,
+  HeroUnit,
   // Put here your other bricks...
 ]
 
