@@ -18,22 +18,6 @@ const pageTypes: types.IPageType[] = [
       'tweet-light',
     ],
   },
-  {
-    name: 'blog',
-    pluralName: 'Blog',
-    getDefaultContent: () => [],
-    allowedBlockTypes: [
-      'title',
-      'paragraph',
-      'video',
-      'image',
-      'quote',
-      'social-embed',
-      'code-block',
-      'tweet',
-      'tweet-light',
-    ],
-  },
 ]
 
 export default pageTypes
