@@ -13,13 +13,9 @@
     "@remix-run/react": "^1.5.1",
     "@remix-run/serve": "^1.5.1",
     "dotenv": "^16.0.1",
-    "prism-theme-night-owl": "^1.4.0",
-    "prismjs": "^1.28.0",
     "react": "^18.1.0",
     "react-bricks": "^3.2.25",
-    "react-bricks-ui": "^0.4.0",
     "react-dom": "^18.1.0",
-    "react-slick": "^0.29.0",
     "remix": "^1.5.1"
   },
   "devDependencies": {
