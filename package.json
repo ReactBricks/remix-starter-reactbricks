@@ -14,7 +14,7 @@
     "@remix-run/serve": "^1.6.5",
     "dotenv": "^16.0.1",
     "react": "^18.2.0",
-    "react-bricks": "^3.3.0",
+    "react-bricks": "^3.3.1",
     "react-dom": "^18.2.0",
     "remix": "^1.6.5"
   },
