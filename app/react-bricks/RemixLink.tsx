@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'remix'
+import { Link, useLocation } from '@remix-run/react'
 import { types } from 'react-bricks/frontend'
 
 const RemixLink: types.RenderLocalLink = ({
@@ -20,7 +20,7 @@ const RemixLink: types.RenderLocalLink = ({
 
   return (
     <Link to={href}>
-      <a className={anchorClassName}>{children}</a>
+      <span className={anchorClassName}>{children}</span>
     </Link>
   )
 }

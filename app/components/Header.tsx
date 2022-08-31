@@ -1,4 +1,4 @@
-import { Link } from 'remix'
+import { Link } from '@remix-run/react'
 
 const Header: React.FC = () => (
   <header className="bg-white sm:h-20 py-5 border-b sm:sticky top-0 z-10">

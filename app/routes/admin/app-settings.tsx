@@ -1,5 +1,5 @@
 import React from 'react'
-import type { MetaFunction } from 'remix'
+import type { MetaFunction } from '@remix-run/node'
 import { Admin, AppSettings } from 'react-bricks'
 
 export const meta: MetaFunction = () => {

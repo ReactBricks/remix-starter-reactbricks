@@ -7,8 +7,8 @@ import {
   ScrollRestoration,
   useNavigate,
   useLoaderData,
-} from 'remix'
-import type { MetaFunction } from 'remix'
+} from '@remix-run/react'
+import type { MetaFunction } from '@remix-run/node'
 import { ReactBricks } from 'react-bricks/frontend'
 import config from './react-bricks/config'
 

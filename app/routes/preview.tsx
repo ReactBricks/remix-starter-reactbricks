@@ -1,6 +1,6 @@
 import React from 'react'
 import { Preview } from 'react-bricks/frontend'
-import { MetaFunction } from 'remix'
+import type { MetaFunction } from '@remix-run/node'
 
 export const meta: MetaFunction = ({ data }) => {
   return {

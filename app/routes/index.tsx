@@ -1,12 +1,7 @@
+import type { MetaFunction } from '@remix-run/node'
+import { useLoaderData } from '@remix-run/react'
 import { useContext } from 'react'
-import type { MetaFunction } from 'remix'
-import {
-  ReactBricksContext,
-  PageViewer,
-  fetchPage,
-  cleanPage,
-} from 'react-bricks/frontend'
-import { useLoaderData } from 'remix'
+import { cleanPage, fetchPage, PageViewer, ReactBricksContext } from 'react-bricks/frontend'
 import ErrorMessage from '~/components/ErrorMessage'
 import Layout from '~/components/Layout'
 
