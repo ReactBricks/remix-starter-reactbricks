@@ -1,8 +1,10 @@
 {
+  "name": "remix-starter-reactbricks",
   "private": true,
-  "name": "remix-app-template",
-  "description": "",
-  "license": "",
+  "description": "A simple starter to get started quickly with React Bricks and Remix",
+  "version": "1.3.6",
+  "author": "Matteo Frana <f2@f2.net>",
+  "license": "MIT",
   "scripts": {
     "build": "remix build",
     "dev": "node -r dotenv/config node_modules/.bin/remix dev",
