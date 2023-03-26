@@ -5,8 +5,8 @@ import pageTypes from './pageTypes'
 import RemixLink from './RemixLink'
 
 const config: types.ReactBricksConfig = {
-  appId: '', //process.env.APP_ID as string || '',
-  apiKey: '', //process.env.API_KEY as string || '',
+  appId: process.env.APP_ID as string || '',
+  apiKey: process.env.API_KEY as string || '',
   pageTypes,
   bricks,
   logo: '/logo.svg',
