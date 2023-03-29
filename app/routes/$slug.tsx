@@ -1,35 +1,59 @@
-import { useContext } from 'react'
-import { ReactBricksContext, PageViewer, fetchPage, cleanPage } from 'react-bricks/frontend'
-import { useLoaderData } from '@remix-run/react'
-import type { MetaFunction } from '@remix-run/node'
-import Layout from '~/components/Layout'
-import ErrorMessage from '~/components/ErrorMessage'
+import { useContext } from "react"
+import {
+  ReactBricksContext,
+  PageViewer,
+  fetchPage,
+  cleanPage,
+} from "react-bricks/frontend"
+import { useLoaderData } from "@remix-run/react"
+import type { MetaFunction } from "@remix-run/node"
+import Layout from "~/components/Layout"
+import ErrorMessage from "~/components/ErrorMessage"
 
 export const loader = async ({ params }: { params: { slug: string } }) => {
-  try {
-    const page = await fetchPage(params.slug, process.env.API_KEY as string)
-    return { page }
-  } catch {
-    throw new Error(`Cannot find the "${params.slug}" page.`)
+  const [page, header, footer] = await Promise.all([
+    fetchPage(params.slug, process.env.API_KEY as string).catch(() => {
+      throw new Error(`Cannot find the "${params.slug}" page.`)
+    }),
+    fetchPage("header", process.env.API_KEY as string).catch(() => {
+      throw new Error(
+        `Cannot find header. Create a new 'header' entity under 'Layout'`
+      )
+    }),
+    fetchPage("footer", process.env.API_KEY as string).catch(() => {
+      throw new Error(
+        `Cannot find footer. Create a new 'footer' entity under 'Layout'`
+      )
+    }),
+  ])
+
+  return {
+    page,
+    header,
+    footer,
   }
 }
 
 export const meta: MetaFunction = ({ data }) => {
   return {
-    title: data?.page?.meta?.title || 'Blog post',
+    title: data?.page?.meta?.title || "Blog post",
   }
 }
 
 export default function Page() {
-  const { page } = useLoaderData()
+  const { page, header, footer } = useLoaderData()
   // Clean the received content
   // Removes unknown or not allowed bricks
   const { pageTypes, bricks } = useContext(ReactBricksContext)
   const pageOk = page ? cleanPage(page, pageTypes, bricks) : null
+  const headerOk = header ? cleanPage(header, pageTypes, bricks) : null
+  const footerOk = footer ? cleanPage(footer, pageTypes, bricks) : null
 
   return (
     <Layout>
+      <PageViewer page={headerOk} />
       <PageViewer page={pageOk} />
+      <PageViewer page={footerOk} />
     </Layout>
   )
 }
