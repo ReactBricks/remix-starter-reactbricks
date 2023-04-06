@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useRef, useState } from "react"
 import {
   Image,
   Repeater,
@@ -8,12 +8,17 @@ import {
 } from "react-bricks/frontend"
 import { BsMoonFill, BsSunFill } from "react-icons/bs"
 import { FiMenu, FiX } from "react-icons/fi"
+import useOnClickOutside from "./useClickOutside"
 
 interface HeaderProps {}
 
 const Header: types.Brick<HeaderProps> = ({}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { isDarkColorMode, toggleColorMode } = useContext(ReactBricksContext)
+
+  const ref = useRef<HTMLDivElement>(null)
+
+  useOnClickOutside(ref, () => setMobileMenuOpen(false))
 
   return (
     <section className={"HeaderSection"}>
@@ -61,7 +66,7 @@ const Header: types.Brick<HeaderProps> = ({}) => {
             {mobileMenuOpen ? <FiX /> : <FiMenu />}
           </button>
           {mobileMenuOpen && (
-            <div className={"HeaderContainerHamburgerMenuItems"}>
+            <div ref={ref} className={"HeaderContainerHamburgerMenuItems"}>
               <Repeater propName='menuItems' />
             </div>
           )}

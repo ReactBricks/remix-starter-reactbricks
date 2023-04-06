@@ -16,7 +16,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
   isActive,
 }) => {
   const [open, setOpen] = useState(false)
-  const ref = useRef<HTMLButtonElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
 
   useOnClickOutside(ref, () => setOpen(false))
 
@@ -25,7 +25,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
       <div>
         <Link
           href={linkPath}
-          className={"HeaderMenuItemLink"}
+          className='HeaderMenuItemLink'
           activeClassName='HeaderMenuItemLinkActive'
         >
           <Text
@@ -34,7 +34,7 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
             renderBlock={({ children }) => <span>{children}</span>}
           />
         </Link>
-        <Link href={linkPath} className={"HeaderMenuItemLinkHamburger"}>
+        <Link href={linkPath} className='HeaderMenuItemLinkHamburger'>
           {typeof linkText === "string" ? linkText : Plain.serialize(linkText)}
         </Link>
       </div>
@@ -43,9 +43,8 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
 
   return (
     <div>
-      <div className={"HeaderMenuItemContainerLinkItemWithSubItems"}>
+      <div ref={ref} className="HeaderMenuItemContainerLinkItemWithSubItems">
         <button
-          ref={ref}
           className={`HeaderMenuItemButtonLinkItemWithSubItems ${
             open ? "HeaderMenuItemButtonLinkItemWithSubItemsOpen" : ""
           }
