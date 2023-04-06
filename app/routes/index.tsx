@@ -10,10 +10,10 @@ import type { MetaFunction } from "@remix-run/node"
 import Layout from "~/components/Layout"
 import ErrorMessage from "~/components/ErrorMessage"
 
-export const loader = async ({ params }: { params: { slug: string } }) => {
+export const loader = async () => {
   const [page, header, footer] = await Promise.all([
-    fetchPage(params.slug, process.env.API_KEY as string).catch(() => {
-      throw new Error(`Cannot find the "${params.slug}" page.`)
+    fetchPage("/", process.env.API_KEY as string).catch(() => {
+      throw new Error(`Cannot find the home page.`)
     }),
     fetchPage("header", process.env.API_KEY as string).catch(() => {
       throw new Error(

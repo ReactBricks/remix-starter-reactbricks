@@ -1404,7 +1404,7 @@
   resolved "https://registry.yarnpkg.com/@gar/promisify/-/promisify-1.1.3.tgz#555193ab2e3bb3b6adc3d551c9c030d9e860daf6"
   integrity sha512-k2Ty1JcVojjJFwrg/ThKi2ujJ7XNLYaFGNB/bWT9wGR+oSMJHMa5w+CUq6p/pVrKeNNgA7pCqEcjSnHVoqJQFw==
 
-"@headlessui/react@^1.7.10":
+"@headlessui/react@^1.7.13":
   version "1.7.13"
   resolved "https://registry.yarnpkg.com/@headlessui/react/-/react-1.7.13.tgz#fd150b394954e9f1d86ed2340cffd1217d6e7628"
   integrity sha512-9n+EQKRtD9266xIHXdY5MfiXPDfYwl7zBM7KOx2Ae3Gdgxy8QML1FkCMjq6AsOf0l6N9uvI4HcFtuFlenaldKg==
@@ -5181,12 +5181,12 @@ react-big-calendar@^1.6.4:
     react-overlays "^5.2.1"
     uncontrollable "^7.2.1"
 
-react-bricks@3.8.10:
-  version "3.8.10"
-  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-3.8.10.tgz#76d82a9c7e315a9353b8b54f510a6b91e3df2829"
-  integrity sha512-Y4+9CYR8Xa44vQVL4KJ1OjUHxBbzd9ik+JukCM1HHdJpe3QjSK2dAmx0IT6XuyJVN1x0WJJDDhElK60G/fRStQ==
+react-bricks@3.9.0-beta.3:
+  version "3.9.0-beta.3"
+  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-3.9.0-beta.3.tgz#f63b5defeae60fe418b6737f524dcc4013486e56"
+  integrity sha512-G1tDbq5TlmalbIvOncXp04TC4ebzuqIYIDULzjhZKqoqy8R6EYhb4PZqhLT6HYugugcd/+BTCb8XomJGkiXC1Q==
   dependencies:
-    "@headlessui/react" "^1.7.10"
+    "@headlessui/react" "^1.7.13"
     "@tippyjs/react" "^4.2.6"
     axios "^1.3.2"
     classnames "^2.3.2"
