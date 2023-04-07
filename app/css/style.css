@@ -6,6 +6,7 @@
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap');
 
 *,
 ::before,
@@ -22,7 +23,7 @@
 
 ::before,
 ::after {
-  --tw-content: "";
+  --tw-content: '';
 }
 
 /*
@@ -42,9 +43,7 @@ html {
   -o-tab-size: 4;
   tab-size: 4;
   /* 3 */
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: 'Nunito Sans', sans-serif;
   /* 4 */
 }
 
@@ -126,7 +125,7 @@ kbd,
 samp,
 pre {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
-    "Liberation Mono", "Courier New", monospace;
+    'Liberation Mono', 'Courier New', monospace;
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -215,9 +214,9 @@ select {
 */
 
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
   /* 1 */
   background-color: transparent;
@@ -264,7 +263,7 @@ Correct the cursor style of increment and decrement buttons in Safari.
 2. Correct the outline style in Safari.
 */
 
-[type="search"] {
+[type='search'] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -378,7 +377,7 @@ Set the default cursor for buttons.
 */
 
 button,
-[role="button"] {
+[role='button'] {
   cursor: pointer;
 }
 
@@ -832,6 +831,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 5px;
+  background-color: #efefef;
 }
 
 .HeaderButtonHamburgerMenu:hover {
@@ -844,12 +844,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(2 132 199);
 }
 
-.dark .HeaderButtonHamburgerMenu{
-color: rgb(229 231 235);
+.dark .HeaderButtonHamburgerMenu {
+  color: rgb(229 231 235);
+  background-color: rgb(17 24 39);
+}
+.dark .HeaderButtonHamburgerMenu:hover {
+  background-color: rgb(14 165 233/0.4);
 }
 
 .dark .HeaderButtonHamburgerMenu:focus {
-  color: rgb(56 189 248);
+  background-color: rgb(14 165 233/0.4);
 }
 
 .HeaderContainerHamburgerMenuItems {
@@ -867,6 +871,7 @@ color: rgb(229 231 235);
 
 .dark .HeaderContainerHamburgerMenuItems {
   background-color: rgb(17 24 39);
+  border-color: rgb(156 163 175);
 }
 
 .darkModeButtonMobile {
@@ -969,7 +974,7 @@ color: rgb(229 231 235);
 
 .HeaderMenuItemLinkActive {
   color: rgb(2 132 199);
-  background-color: rgb(14 165 233 / 0.1);
+  background-color: rgb(14 165 233 / 0.3);
 }
 
 .dark .HeaderMenuItemLinkActive {
@@ -986,7 +991,8 @@ color: rgb(229 231 235);
 }
 
 .dark .HeaderMenuItemLink:hover {
-  color: rgb(56 189 248);
+  color: white;
+  background-color: rgb(14 165 233 / 0.4);
 }
 
 .HeaderMenuItemLinkHamburger {
@@ -1005,7 +1011,7 @@ color: rgb(229 231 235);
 }
 
 .HeaderMenuItemLinkHamburger:hover {
-  color: rgb(2 132 199 / 0.2);
+  color: rgb(14 165 233);
 }
 
 .HeaderMenuItemContainerLinkItemWithSubItems {
@@ -1044,7 +1050,8 @@ color: rgb(229 231 235);
 }
 
 .dark .HeaderMenuItemButtonLinkItemWithSubItems:hover {
-  color: rgb(56 189 248);
+  color: white;
+  background-color: rgb(14 165 233 / 0.4);
 }
 
 .HeaderMenuItemButtonLinkItemWithSubItemsOpen {
@@ -1053,7 +1060,8 @@ color: rgb(229 231 235);
 }
 
 .dark .HeaderMenuItemButtonLinkItemWithSubItemsOpen {
-  color: rgb(56 189 248);
+  color: white;
+  background-color: rgb(14 165 233 / 0.4);
 }
 
 .HeaderMenuItemButtonTextActive {
@@ -1086,6 +1094,7 @@ color: rgb(229 231 235);
 
 .dark .HeaderMenuItemContainerSubmenuItemsOpen {
   background-color: rgb(17 24 39);
+  border-color: rgb(156 163 175);
 }
 
 .HeaderMenuItemContainerSubmenuItems {
@@ -1144,7 +1153,7 @@ color: rgb(229 231 235);
 }
 
 .dark .HeaderMenuSubItemLinkContainer:hover .HeaderMenuSubItemLinkText {
-  color: rgb(56 189 248);
+  color: rgb(14 165 233);
 }
 
 .HeaderMenuSubItemLinkText {
@@ -1179,6 +1188,22 @@ color: rgb(229 231 235);
 }
 
 .dark .HeaderMenuSubItemLinkDescription {
+  color: white;
+}
+
+.HamburgerMenuFiX {
+  color: rgb(75 85 99);
+}
+
+.HamburgerMenuFiMenu {
+  color: rgb(75 85 99);
+}
+
+.dark .HamburgerMenuFiX {
+  color: white;
+}
+
+.dark .HamburgerMenuFiMenu {
   color: white;
 }
 
