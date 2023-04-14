@@ -5181,10 +5181,10 @@ react-big-calendar@^1.6.4:
     react-overlays "^5.2.1"
     uncontrollable "^7.2.1"
 
-react-bricks@3.9.0-beta.3:
-  version "3.9.0-beta.3"
-  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-3.9.0-beta.3.tgz#f63b5defeae60fe418b6737f524dcc4013486e56"
-  integrity sha512-G1tDbq5TlmalbIvOncXp04TC4ebzuqIYIDULzjhZKqoqy8R6EYhb4PZqhLT6HYugugcd/+BTCb8XomJGkiXC1Q==
+react-bricks@3.9.0-beta.7:
+  version "3.9.0-beta.7"
+  resolved "https://registry.yarnpkg.com/react-bricks/-/react-bricks-3.9.0-beta.7.tgz#a9b7ccf8845e653fe94016eb21ca531e2b64b9f1"
+  integrity sha512-Q2PeSuKu4Ni39jsH+8I8gzuosb7lo0PqULRgvzRKaxX75ddqdGejOblItYIrf94yDn9KtIbaas2VKz/orI4OUQ==
   dependencies:
     "@headlessui/react" "^1.7.13"
     "@tippyjs/react" "^4.2.6"

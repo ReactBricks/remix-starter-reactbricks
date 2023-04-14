@@ -1,10 +1,5 @@
-import { useContext } from "react"
-import {
-  ReactBricksContext,
-  PageViewer,
-  fetchPage,
-  cleanPage,
-} from "react-bricks/frontend"
+import { PageViewer, fetchPage, cleanPage } from "react-bricks/frontend"
+import { useReactBricksContext } from "react-bricks/frontend"
 import { useLoaderData } from "@remix-run/react"
 import type { MetaFunction } from "@remix-run/node"
 import Layout from "~/components/Layout"
@@ -49,7 +44,7 @@ export default function Page() {
   const { page, header, footer } = useLoaderData()
   // Clean the received content
   // Removes unknown or not allowed bricks
-  const { pageTypes, bricks } = useContext(ReactBricksContext)
+  const { pageTypes, bricks } = useReactBricksContext()
   const pageOk =
     page && page.slug !== "header" && page.slug !== "footer"
       ? cleanPage(page, pageTypes, bricks)
