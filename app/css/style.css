@@ -846,7 +846,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .dark .HeaderButtonHamburgerMenu {
   color: rgb(229 231 235);
-  background-color: rgb(17 24 39);
+  background-color: transparent;
 }
 .dark .HeaderButtonHamburgerMenu:hover {
   background-color: rgb(14 165 233/0.4);
@@ -869,10 +869,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   z-index: 10;
 }
 
-.dark .HeaderContainerHamburgerMenuItems {
+/*.dark .HeaderContainerHamburgerMenuItems {
   background-color: rgb(17 24 39);
   border-color: rgb(156 163 175);
-}
+}*/
 
 .darkModeButtonMobile {
   display: flex;
@@ -974,11 +974,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .HeaderMenuItemLinkActive {
   color: rgb(2 132 199);
-  background-color: rgb(14 165 233 / 0.3);
+  background-color: rgb(14 165 233 / 0.1);
 }
 
 .dark .HeaderMenuItemLinkActive {
-  color: rgb(56 189 248);
+  background-color: rgb(14 165 233 / 0.3);
 }
 
 .dark .HeaderMenuItemLink {
@@ -1006,12 +1006,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
   color: rgb(31 41 55);
 }
-.dark .HeaderMenuItemLinkHamburger {
+/*.dark .HeaderMenuItemLinkHamburger {
   color: white;
-}
+}*/
 
 .HeaderMenuItemLinkHamburger:hover {
-  color: rgb(14 165 233);
+  color: rgb(2 132 199);
 }
 
 .HeaderMenuItemContainerLinkItemWithSubItems {
@@ -1092,10 +1092,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
-.dark .HeaderMenuItemContainerSubmenuItemsOpen {
+/*.dark .HeaderMenuItemContainerSubmenuItemsOpen {
   background-color: rgb(17 24 39);
   border-color: rgb(156 163 175);
-}
+}*/
 
 .HeaderMenuItemContainerSubmenuItems {
   margin-bottom: 1.5rem;
@@ -1111,9 +1111,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 1rem;
 }
 
-.dark .HeaderMenuItemContainerLinkText {
+/*.dark .HeaderMenuItemContainerLinkText {
   color: white;
-}
+}*/
 
 @media (min-width: 1024px) {
   .HeaderMenuItemLink {
@@ -1152,9 +1152,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   color: rgb(2 132 199);
 }
 
-.dark .HeaderMenuSubItemLinkContainer:hover .HeaderMenuSubItemLinkText {
+/*.dark .HeaderMenuSubItemLinkContainer:hover .HeaderMenuSubItemLinkText {
   color: rgb(14 165 233);
-}
+}*/
 
 .HeaderMenuSubItemLinkText {
   color: rgb(17 24 39);
@@ -1169,9 +1169,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-.dark .HeaderMenuSubItemLinkText {
+/*.dark .HeaderMenuSubItemLinkText {
   color: white;
-}
+}*/
 
 .HeaderMenuSubItemDescriptionContainer {
   display: none;
@@ -1187,9 +1187,9 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 
-.dark .HeaderMenuSubItemLinkDescription {
+/*.dark .HeaderMenuSubItemLinkDescription {
   color: white;
-}
+}*/
 
 .HamburgerMenuFiX {
   color: rgb(75 85 99);
