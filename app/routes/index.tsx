@@ -1,26 +1,32 @@
-import { useContext } from "react"
+import { useContext } from 'react'
 import {
   ReactBricksContext,
   PageViewer,
   fetchPage,
   cleanPage,
-} from "react-bricks/frontend"
-import { useLoaderData } from "@remix-run/react"
-import type { MetaFunction } from "@remix-run/node"
-import Layout from "~/components/Layout"
-import ErrorMessage from "~/components/ErrorMessage"
+} from 'react-bricks/frontend'
+import { useLoaderData } from '@remix-run/react'
+import type { MetaFunction } from '@remix-run/node'
+import Layout from '~/components/Layout'
+import ErrorMessage from '~/components/ErrorMessage'
+import config from '~/react-bricks/config'
 
 export const loader = async () => {
   const [page, header, footer] = await Promise.all([
-    fetchPage("/", process.env.API_KEY as string).catch(() => {
+    fetchPage(
+      '/',
+      process.env.API_KEY as string,
+      undefined,
+      config.pageTypes
+    ).catch(() => {
       throw new Error(`Cannot find the home page.`)
     }),
-    fetchPage("header", process.env.API_KEY as string).catch(() => {
+    fetchPage('header', process.env.API_KEY as string).catch(() => {
       throw new Error(
         `Cannot find header. Create a new 'header' entity under 'Layout'`
       )
     }),
-    fetchPage("footer", process.env.API_KEY as string).catch(() => {
+    fetchPage('footer', process.env.API_KEY as string).catch(() => {
       throw new Error(
         `Cannot find footer. Create a new 'footer' entity under 'Layout'`
       )
@@ -36,7 +42,7 @@ export const loader = async () => {
 
 export const meta: MetaFunction = ({ data }) => {
   return {
-    title: data?.page?.meta?.title || "Blog post",
+    title: data?.page?.meta?.title || 'Blog post',
   }
 }
 
