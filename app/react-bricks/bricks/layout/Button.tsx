@@ -88,7 +88,7 @@ Button.schema = {
     href: '',
     isTargetBlank: false,
     buttonType: 'submit',
-
+    simpleAnchorLink: false,
     variant: 'solid',
     padding: 'normal',
   }),
@@ -118,6 +118,12 @@ Button.schema = {
         {
           name: 'isTargetBlank',
           label: 'Open in new window',
+          type: types.SideEditPropType.Boolean,
+          show: (props) => props.type === 'link',
+        },
+        {
+          name: 'simpleAnchorLink',
+          label: 'Simple anchor (no SPA link)',
           type: types.SideEditPropType.Boolean,
           show: (props) => props.type === 'link',
         },
