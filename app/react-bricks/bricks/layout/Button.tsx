@@ -1,16 +1,16 @@
-import * as React from "react"
-import classNames from "classnames"
-import { Text, Link, types, useAdminContext } from "react-bricks/frontend"
+import * as React from 'react'
+import classNames from 'classnames'
+import { Text, Link, types, useAdminContext } from 'react-bricks/frontend'
 
 export interface ButtonProps {
-  type: "button" | "link"
+  type: 'button' | 'link'
   text: string
   href: string
   isTargetBlank: boolean
-  buttonType: "submit" | "button" | "reset"
-
-  variant: "solid" | "outline"
-  padding: "normal" | "small"
+  buttonType: 'submit' | 'button' | 'reset'
+  simpleAnchorLink: boolean
+  variant: 'solid' | 'outline'
+  padding: 'normal' | 'small'
   className?: string
 }
 
@@ -18,30 +18,32 @@ const Button: types.Brick<ButtonProps> = ({
   type,
   href,
   isTargetBlank,
+  simpleAnchorLink = false,
   buttonType,
   variant,
   padding,
   className,
 }) => {
   const target = isTargetBlank
-    ? { target: "_blank", rel: "noopener noreferrer" }
+    ? { target: '_blank', rel: 'noopener noreferrer' }
     : {}
 
-  if (type === "link") {
+  if (type === 'link') {
     return (
       <Link
         href={href}
         {...target}
         className={`
          buttonWrapper
-          ${padding === "small" ? "buttonPsmall" : "buttonPnormal"}
-          ${variant === "solid" ? "buttonColorSolid" : "buttonColorOutline"}
+          ${padding === 'small' ? 'buttonPsmall' : 'buttonPnormal'}
+          ${variant === 'solid' ? 'buttonColorSolid' : 'buttonColorOutline'}
           ${className}
        `}
+        simpleAnchor={simpleAnchorLink}
       >
         <Text
-          propName='text'
-          placeholder='Action'
+          propName="text"
+          placeholder="Action"
           renderBlock={({ children }) => <span>{children}</span>}
         />
       </Link>
@@ -53,18 +55,18 @@ const Button: types.Brick<ButtonProps> = ({
 
   return (
     <button
-      type={isAdmin && !previewMode ? "button" : buttonType}
+      type={isAdmin && !previewMode ? 'button' : buttonType}
       //disabled={isAdmin && !previewMode}
       className={`
         buttonWrapper
-        ${padding === "small" ? "buttonPsmall" : "buttonPnormal"}
-        ${variant === "solid" ? "buttonColorSolid" : "buttonColorOutline"}
+        ${padding === 'small' ? 'buttonPsmall' : 'buttonPnormal'}
+        ${variant === 'solid' ? 'buttonColorSolid' : 'buttonColorOutline'}
         className
       `}
     >
       <Text
-        propName='text'
-        placeholder='Action'
+        propName="text"
+        placeholder="Action"
         renderBlock={({ children }) => <span>{children}</span>}
       />
     </button>
@@ -72,93 +74,93 @@ const Button: types.Brick<ButtonProps> = ({
 }
 
 Button.schema = {
-  name: "button",
-  label: "Button",
-  category: "shared",
+  name: 'button',
+  label: 'Button',
+  category: 'shared',
   hideFromAddMenu: true,
-  playgroundLinkLabel: "View source code on Github",
+  playgroundLinkLabel: 'View source code on Github',
   playgroundLinkUrl:
-    "https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/Button.tsx",
+    'https://github.com/ReactBricks/react-bricks-ui/blob/master/src/website/shared/Button.tsx',
 
   getDefaultProps: () => ({
-    type: "link",
-    text: "Click me",
-    href: "",
+    type: 'link',
+    text: 'Click me',
+    href: '',
     isTargetBlank: false,
-    buttonType: "submit",
+    buttonType: 'submit',
 
-    variant: "solid",
-    padding: "normal",
+    variant: 'solid',
+    padding: 'normal',
   }),
   sideEditProps: [
     {
-      groupName: "Button functionality",
+      groupName: 'Button functionality',
       defaultOpen: true,
       props: [
         {
-          name: "type",
-          label: "Type",
+          name: 'type',
+          label: 'Type',
           type: types.SideEditPropType.Select,
           selectOptions: {
             display: types.OptionsDisplay.Radio,
             options: [
-              { value: "link", label: "Link" },
-              { value: "button", label: "Form Button" },
+              { value: 'link', label: 'Link' },
+              { value: 'button', label: 'Form Button' },
             ],
           },
         },
         {
-          name: "href",
-          label: "Link (external or path)",
+          name: 'href',
+          label: 'Link (external or path)',
           type: types.SideEditPropType.Text,
-          show: (props) => props.type === "link",
+          show: (props) => props.type === 'link',
         },
         {
-          name: "isTargetBlank",
-          label: "Open in new window",
+          name: 'isTargetBlank',
+          label: 'Open in new window',
           type: types.SideEditPropType.Boolean,
-          show: (props) => props.type === "link",
+          show: (props) => props.type === 'link',
         },
         {
-          name: "buttonType",
-          label: "Button type",
+          name: 'buttonType',
+          label: 'Button type',
           type: types.SideEditPropType.Select,
           selectOptions: {
             display: types.OptionsDisplay.Radio,
             options: [
-              { value: "submit", label: "Form submit" },
-              { value: "reset", label: "Form reset" },
-              { value: "button", label: "Button" },
+              { value: 'submit', label: 'Form submit' },
+              { value: 'reset', label: 'Form reset' },
+              { value: 'button', label: 'Button' },
             ],
           },
-          show: (props) => props.type === "button",
+          show: (props) => props.type === 'button',
         },
       ],
     },
     {
-      groupName: "Visual",
+      groupName: 'Visual',
       props: [
         {
-          name: "variant",
-          label: "Variant",
+          name: 'variant',
+          label: 'Variant',
           type: types.SideEditPropType.Select,
           selectOptions: {
             display: types.OptionsDisplay.Radio,
             options: [
-              { value: "solid", label: "Solid" },
-              { value: "outline", label: "Outline" },
+              { value: 'solid', label: 'Solid' },
+              { value: 'outline', label: 'Outline' },
             ],
           },
         },
         {
-          name: "padding",
-          label: "Size",
+          name: 'padding',
+          label: 'Size',
           type: types.SideEditPropType.Select,
           selectOptions: {
             display: types.OptionsDisplay.Radio,
             options: [
-              { value: "normal", label: "Normal" },
-              { value: "small", label: "Small" },
+              { value: 'normal', label: 'Normal' },
+              { value: 'small', label: 'Small' },
             ],
           },
         },
