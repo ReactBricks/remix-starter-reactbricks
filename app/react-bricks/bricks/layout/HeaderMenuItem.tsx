@@ -94,7 +94,10 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
             <Repeater
               propName="submenuItems"
               renderItemWrapper={(props) => (
-                <div onClick={() => setOpen((current) => !current)}>
+                <div
+                  key={props.key}
+                  onClick={() => setOpen((current) => !current)}
+                >
                   {props}
                 </div>
               )}
@@ -110,7 +113,9 @@ const HeaderMenuItem: types.Brick<HeaderMenuItemProps> = ({
         <Repeater
           propName="submenuItems"
           renderItemWrapper={(props) => (
-            <div onClick={() => setMobileMenuOpen(false)}>{props}</div>
+            <div key={props.key} onClick={() => setMobileMenuOpen(false)}>
+              {props}
+            </div>
           )}
         />
       </div>
