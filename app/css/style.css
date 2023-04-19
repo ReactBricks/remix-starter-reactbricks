@@ -1059,6 +1059,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(14 165 233 / 0.2);
   color: rgb(2 132 199);
 }
+.HeaderMenuItemButtonLinkItemWithSubItems:focus {
+  background-color: rgb(14 165 233 / 0.2);
+  color: rgb(2 132 199);
+}
 
 .dark .HeaderMenuItemButtonLinkItemWithSubItems:hover {
   color: white;
@@ -1346,7 +1350,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 @media (min-width: 1024px) {
   .FeatureItemCols4 {
-    flex: 0 1 20%;
+    flex: 0 1 20.1%;
   }
 }
 
