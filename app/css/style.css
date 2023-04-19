@@ -762,7 +762,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: translateY(-1px);
 }
 
-.dark .FooterLinkText:hover {
+.dark .FooterLinkText {
   color: white;
 }
 
@@ -1283,6 +1283,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .FeatureItemTextColor {
   color: rgb(107 114 128);
+}
+
+.dark .FeatureItemTextColor {
+  color: white;
 }
 
 .FeatureItemLinkContainer {
