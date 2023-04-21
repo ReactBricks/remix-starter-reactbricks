@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { useReactBricksContext } from 'react-bricks/frontend'
 
 interface LayoutProps {
@@ -7,6 +7,16 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const { isDarkColorMode } = useReactBricksContext()
+
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return <></>
+  }
 
   return (
     <div className={`layoutContainer ${isDarkColorMode ? 'dark' : 'light'}`}>
