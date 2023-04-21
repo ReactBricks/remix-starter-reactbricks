@@ -7,20 +7,21 @@ import {
   ScrollRestoration,
   useNavigate,
   useLoaderData,
-} from '@remix-run/react'
-import type { MetaFunction } from '@remix-run/node'
-import { ReactBricks } from 'react-bricks/frontend'
-import config from './react-bricks/config'
+} from "@remix-run/react"
+import type { MetaFunction } from "@remix-run/node"
+import { ReactBricks } from "react-bricks/frontend"
+import config from "./react-bricks/config"
 
-import styles from './css/style.css'
-import ErrorMessage from './components/ErrorMessage'
+import styles from "./css/style.css"
+import ErrorMessage from "./components/ErrorMessage"
+import { useState } from "react"
 
 export function links() {
-  return [{ rel: 'stylesheet', href: styles }]
+  return [{ rel: "stylesheet", href: styles }]
 }
 
 export const meta: MetaFunction = () => {
-  return { title: 'Remix Blog Starter with React Bricks' }
+  return { title: "Remix Blog Starter with React Bricks" }
 }
 
 export const loader = () => {
@@ -28,7 +29,7 @@ export const loader = () => {
   const appId = process.env.APP_ID
 
   if (!apiKey || !appId) {
-    throw new Error('Missing React Bricks credentials in .env file')
+    throw new Error("Missing React Bricks credentials in .env file")
   }
 
   return { appId, apiKey }
@@ -38,28 +39,43 @@ export default function App() {
   const navigate = useNavigate()
   const { appId, apiKey } = useLoaderData()
 
+  const savedColorMode =
+    typeof window === "undefined" ? "" : localStorage.getItem("color-mode")
+  const [colorMode, setColorMode] = useState(savedColorMode || "light")
+
+  const toggleColorMode = () => {
+    const newColorMode = colorMode === "light" ? "dark" : "light"
+    setColorMode(newColorMode)
+    localStorage.setItem("color-mode", newColorMode)
+  }
+
   const reactBricksConfig = {
     ...config,
     appId,
     apiKey,
     navigate: (path: string) => navigate(path),
+    isDarkColorMode: colorMode === "dark",
+    toggleColorMode,
+    contentClassName: `${colorMode} ${
+      colorMode === "dark" ? "dark darkContentClass" : "light whiteContentClass"
+    }`,
   }
 
   return (
-    <html lang="en">
+    <html lang='en'>
       <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta charSet='utf-8' />
+        <meta name='viewport' content='width=device-width,initial-scale=1' />
         <Meta />
         <Links />
       </head>
-      <body id="root">
+      <body id='root'>
         <ReactBricks {...reactBricksConfig}>
           <Outlet />
         </ReactBricks>
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === 'development' && <LiveReload />}
+        {process.env.NODE_ENV === "development" && <LiveReload />}
       </body>
     </html>
   )

@@ -4,17 +4,14 @@ import { useLoaderData } from "@remix-run/react"
 import type { MetaFunction } from "@remix-run/node"
 import Layout from "~/components/Layout"
 import ErrorMessage from "~/components/ErrorMessage"
-import config from "~/react-bricks/config"
+import { redirect } from "@remix-run/node"
 
-export const loader = async () => {
+export const loader = async ({ params }: { params: any }) => {
+  const splat = params["*"]
+
   const [page, header, footer] = await Promise.all([
-    fetchPage(
-      "/",
-      process.env.API_KEY as string,
-      undefined,
-      config.pageTypes
-    ).catch(() => {
-      throw new Error(`Cannot find the home page.`)
+    fetchPage(splat, process.env.API_KEY as string).catch(() => {
+      throw new Error(`Cannot find the "${splat}" page.`)
     }),
     fetchPage("header", process.env.API_KEY as string).catch(() => {
       throw new Error(
@@ -27,6 +24,8 @@ export const loader = async () => {
       )
     }),
   ])
+
+  if (page.slug === "header" || page.slug === "footer") return redirect("/")
 
   return {
     page,
@@ -46,7 +45,10 @@ export default function Page() {
   // Clean the received content
   // Removes unknown or not allowed bricks
   const { pageTypes, bricks } = useReactBricksContext()
-  const pageOk = page ? cleanPage(page, pageTypes, bricks) : null
+  const pageOk =
+    page && page.slug !== "header" && page.slug !== "footer"
+      ? cleanPage(page, pageTypes, bricks)
+      : null
   const headerOk = header ? cleanPage(header, pageTypes, bricks) : null
   const footerOk = footer ? cleanPage(footer, pageTypes, bricks) : null
 
