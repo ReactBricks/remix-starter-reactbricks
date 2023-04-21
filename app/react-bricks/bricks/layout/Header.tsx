@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Image, Repeater, types, Link } from 'react-bricks/frontend'
 import { useReactBricksContext } from 'react-bricks/frontend'
 import { BsMoonFill, BsSunFill } from 'react-icons/bs'
@@ -10,6 +10,11 @@ interface HeaderProps {}
 const Header: types.Brick<HeaderProps> = ({}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const { isDarkColorMode, toggleColorMode } = useReactBricksContext()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const ref = useRef<HTMLDivElement>(null)
 
@@ -42,11 +47,11 @@ const Header: types.Brick<HeaderProps> = ({}) => {
           />
         </div>
 
-        <div className={'HeaderContainerHamburgerMenu'}>
-          {/* DARK MODE BUTTON MOBILE */}
+        {/* DARK MODE BUTTON */}
+        {mounted && (
           <button
             type="button"
-            className={'darkModeButtonMobile'}
+            className={'darkModeButton'}
             onClick={toggleColorMode}
           >
             {!isDarkColorMode ? (
@@ -57,7 +62,9 @@ const Header: types.Brick<HeaderProps> = ({}) => {
               />
             )}
           </button>
+        )}
 
+        <div ref={ref} className={'HeaderContainerHamburgerMenu'}>
           <button
             className={'HeaderButtonHamburgerMenu'}
             onClick={() => setMobileMenuOpen((current) => !current)}
@@ -69,7 +76,7 @@ const Header: types.Brick<HeaderProps> = ({}) => {
             )}
           </button>
           {mobileMenuOpen && (
-            <div ref={ref} className={'HeaderContainerHamburgerMenuItems'}>
+            <div className={'HeaderContainerHamburgerMenuItems'}>
               <Repeater
                 propName="menuItems"
                 itemProps={{
@@ -80,19 +87,6 @@ const Header: types.Brick<HeaderProps> = ({}) => {
             </div>
           )}
         </div>
-
-        {/* DARK MODE BUTTON DESKTOP */}
-        <button
-          type="button"
-          className={'darkModeButtonDesktop'}
-          onClick={toggleColorMode}
-        >
-          {!isDarkColorMode ? (
-            <BsMoonFill />
-          ) : (
-            <BsSunFill style={{ fontSize: '1.25rem', lineHeight: '1.75rem' }} />
-          )}
-        </button>
       </nav>
     </section>
   )

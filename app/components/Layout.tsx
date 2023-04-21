@@ -1,15 +1,12 @@
 import { ReactNode } from 'react'
-import { useReactBricksContext } from 'react-bricks/frontend'
 
 interface LayoutProps {
   children?: ReactNode
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { isDarkColorMode } = useReactBricksContext()
-
   return (
-    <div className={`layoutContainer ${isDarkColorMode ? 'dark' : 'light'}`}>
+    <div className="layoutContainer">
       <main className="layoutMain">{children}</main>
     </div>
   )
