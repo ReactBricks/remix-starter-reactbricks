@@ -1,10 +1,10 @@
-import React from "react"
-import { Text, RichText, Image, types } from "react-bricks/frontend"
+import React from 'react'
+import { Text, RichText, Image, types } from 'react-bricks/frontend'
 
 //=============================
 // Local Types
 //=============================
-type Padding = "big" | "small"
+type Padding = 'big' | 'small'
 
 interface HeroUnitProps {
   padding: Padding
@@ -17,36 +17,38 @@ interface HeroUnitProps {
 //=============================
 const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
   return (
-    <div className='HeroUnitContainer'>
+    <div className="HeroUnitContainer">
       <div
         className={`HeroUnitPadding ${
-          padding === "big" ? "HeroUnitBigPadding" : "HeroUnitSmallPadding"
+          padding === 'big' ? 'HeroUnitBigPadding' : 'HeroUnitSmallPadding'
         }`}
       >
         <div>
           <Image
-            propName='icon'
-            alt='Icon'
-            imageClassName={"HeroUnitHeroImage"}
+            propName="icon"
+            alt="Icon"
+            maxWidth={200}
+            aspectRatio={1}
+            imageClassName={'HeroUnitHeroImage'}
           />
           <Text
             renderBlock={(props) => (
-              <h1 className={"HeroUnitTitle"}>{props.children}</h1>
+              <h1 className={'HeroUnitTitle'}>{props.children}</h1>
             )}
-            placeholder='Type a title...'
-            propName='title'
+            placeholder="Type a title..."
+            propName="title"
             renderPlaceholder={(props) => (
-              <span className={"HeroUnitPlaceholderSpan"}>
+              <span className={'HeroUnitPlaceholderSpan'}>
                 {props.children}
               </span>
             )}
           />
           <RichText
             renderBlock={(props) => (
-              <p className={"HeroUnitRichText"}>{props.children}</p>
+              <p className={'HeroUnitRichText'}>{props.children}</p>
             )}
-            placeholder='Type a text...'
-            propName='text'
+            placeholder="Type a text..."
+            propName="text"
             allowedFeatures={[
               types.RichTextFeatures.Bold,
               types.RichTextFeatures.Italic,
@@ -55,10 +57,10 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
               types.RichTextFeatures.Link,
             ]}
             renderCode={(props) => (
-              <code className={"HeroUnitCode"}>{props.children}</code>
+              <code className={'HeroUnitCode'}>{props.children}</code>
             )}
             renderLink={(props) => (
-              <a href={props.href} className={"HeroUnitRichTextLink"}>
+              <a href={props.href} className={'HeroUnitRichTextLink'}>
                 {props.children}
               </a>
             )}
@@ -73,23 +75,23 @@ const MyHeroUnit: types.Brick<HeroUnitProps> = ({ padding }) => {
 // Brick Schema
 //=============================
 MyHeroUnit.schema = {
-  name: "my-hero-unit",
-  label: "Custom Hero Unit",
+  name: 'my-hero-unit',
+  label: 'Custom Hero Unit',
   getDefaultProps: () => ({
-    padding: "big",
-    title: "This is a custom Hero Unit",
+    padding: 'big',
+    title: 'This is a custom Hero Unit',
     text: "We are a hi-tech web development company committed to deliver great products on time. We love to understand our customers' needs and exceed expectations.",
   }),
   sideEditProps: [
     {
-      name: "padding",
-      label: "Padding",
+      name: 'padding',
+      label: 'Padding',
       type: types.SideEditPropType.Select,
       selectOptions: {
         display: types.OptionsDisplay.Select,
         options: [
-          { value: "big", label: "Big Padding" },
-          { value: "small", label: "Small Padding" },
+          { value: 'big', label: 'Big Padding' },
+          { value: 'small', label: 'Small Padding' },
         ],
       },
     },
