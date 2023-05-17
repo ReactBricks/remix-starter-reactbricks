@@ -5,3 +5,8 @@ node_modules
 /public/build
 .env
 .DS_Store
+
+# lock files
+yarn.lock
+pnpm-lock.yaml
+package-lock.json
