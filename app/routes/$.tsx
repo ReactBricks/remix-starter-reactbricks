@@ -5,12 +5,13 @@ import type { MetaFunction } from '@remix-run/node'
 import Layout from '~/components/Layout'
 import ErrorMessage from '~/components/ErrorMessage'
 import { redirect } from '@remix-run/node'
+import type { LoaderArgs } from '@remix-run/node'
 
-export const loader = async ({ params }: { params: any }) => {
+export const loader = async ({ params }: LoaderArgs) => {
   const splat = params['*']
 
   const [page, header, footer] = await Promise.all([
-    fetchPage(splat, process.env.API_KEY as string).catch(() => {
+    fetchPage(splat!, process.env.API_KEY as string).catch(() => {
       throw new Error(`Cannot find the "${splat}" page.`)
     }),
     fetchPage('header', process.env.API_KEY as string).catch(() => {
