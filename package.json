@@ -22,8 +22,11 @@
   },
   "devDependencies": {
     "@remix-run/dev": "^1.19.1",
+    "@types/jsonp": "^0.2.1",
+    "@types/prismjs": "^1.26.0",
     "@types/react": "^18.2.18",
     "@types/react-dom": "^18.2.7",
+    "@types/react-slick": "^0.23.10",
     "typescript": "^5.1.6"
   },
   "engines": {
