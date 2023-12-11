@@ -27,17 +27,18 @@ export const meta: MetaFunction = () => {
 export const loader = () => {
   const apiKey = process.env.API_KEY
   const appId = process.env.APP_ID
+  const publicEnvironment = process.env.PUBLIC_ENVIRONMENT
 
   if (!apiKey || !appId) {
     throw new Error('Missing React Bricks credentials in .env file')
   }
 
-  return { appId, apiKey }
+  return { appId, apiKey, publicEnvironment }
 }
 
 export default function App() {
   const navigate = useNavigate()
-  const { appId, apiKey } = useLoaderData()
+  const { appId, apiKey, publicEnvironment } = useLoaderData()
 
   const savedColorMode =
     typeof window === 'undefined' ? '' : localStorage.getItem('color-mode')
@@ -53,6 +54,7 @@ export default function App() {
     ...config,
     appId,
     apiKey,
+    publicEnvironment,
     navigate: (path: string) => navigate(path),
     isDarkColorMode: colorMode === 'dark',
     toggleColorMode,
