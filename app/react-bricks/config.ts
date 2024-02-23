@@ -5,15 +5,15 @@ import pageTypes from './pageTypes'
 import RemixLink from './RemixLink'
 
 const config: types.ReactBricksConfig = {
-  appId: '', //(process.env.APP_ID as string) || "",
-  apiKey: '', //(process.env.API_KEY as string) || "",
-  environment: '', // (process.env.PUBLIC_ENVIRONMENT) || "",
+  appId: '', //process.env.APP_ID as string || '',
+  apiKey: '', //process.env.API_KEY as string || '',
+  environment: '', //process.env.PUBLIC_ENVIRONMENT || '',
   pageTypes,
   bricks,
   logo: '/logo.svg',
   previewPath: '/preview',
   // // contentClassName: 'content', // Defined dynamically
-  // // isDarkColorMode: ...,        // in _app.tsx
+  // // isDarkColorMode: ...,        // in root.tsx
   // // toggleColorMode: ...,        // to manage Dark Mode
   renderLocalLink: RemixLink,
   navigate: () => {},

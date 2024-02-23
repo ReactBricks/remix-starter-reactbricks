@@ -1,5 +1,5 @@
-import { Link, useLocation } from "@remix-run/react"
-import { types } from "react-bricks/frontend"
+import { Link, useLocation } from '@remix-run/react'
+import { types } from 'react-bricks/frontend'
 
 const RemixLink: types.RenderLocalLink = ({
   href,
@@ -10,17 +10,17 @@ const RemixLink: types.RenderLocalLink = ({
 }) => {
   const location = useLocation()
 
-  let anchorClassName = ""
+  let anchorClassName = ''
 
   if (location.pathname === href) {
     anchorClassName = `${className} ${activeClassName}`
   } else {
-    anchorClassName = className || ""
+    anchorClassName = className || ''
   }
 
   return (
-    <Link to={href}>
-      <span className={anchorClassName}>{children}</span>
+    <Link to={href} className={anchorClassName}>
+      {children}
     </Link>
   )
 }

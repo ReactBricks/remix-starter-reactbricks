@@ -3,9 +3,11 @@ import type { MetaFunction } from '@remix-run/node'
 import { Admin, AppSettings } from 'react-bricks'
 
 export const meta: MetaFunction = () => {
-  return {
-    title: 'React Bricks App Settings',
-  }
+  return [
+    {
+      title: 'React Bricks App Settings',
+    },
+  ]
 }
 
 const AdminAppSettings: React.FC = () => {

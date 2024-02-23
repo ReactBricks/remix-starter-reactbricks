@@ -3,9 +3,11 @@ import { Preview } from 'react-bricks/frontend'
 import type { MetaFunction } from '@remix-run/node'
 
 export const meta: MetaFunction = ({ data }) => {
-  return {
-    title: 'Preview',
-  }
+  return [
+    {
+      title: 'Preview',
+    },
+  ]
 }
 
 const PagePreview: React.FC = () => {

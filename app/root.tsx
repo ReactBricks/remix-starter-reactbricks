@@ -1,3 +1,4 @@
+import type { LinksFunction, MetaFunction } from '@remix-run/node'
 import {
   Links,
   LiveReload,
@@ -5,23 +6,23 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useNavigate,
   useLoaderData,
+  useNavigate,
+  useRouteError,
 } from '@remix-run/react'
-import type { MetaFunction } from '@remix-run/node'
-import { ReactBricks } from 'react-bricks/frontend'
-import config from './react-bricks/config'
-
-import styles from './css/style.css'
-import ErrorMessage from './components/ErrorMessage'
 import { useState } from 'react'
+import { ReactBricks } from 'react-bricks/frontend'
 
-export function links() {
-  return [{ rel: 'stylesheet', href: styles }]
-}
+import ErrorMessage from './components/ErrorMessage'
+import config from './react-bricks/config'
+import styles from './css/style.css'
+
+export const links: LinksFunction = () => [
+  ...(styles ? [{ rel: 'stylesheet', href: styles }] : []),
+]
 
 export const meta: MetaFunction = () => {
-  return { title: 'Remix Blog Starter with React Bricks' }
+  return [{ title: 'Remix Blog Starter with React Bricks' }]
 }
 
 export const loader = () => {
@@ -38,7 +39,7 @@ export const loader = () => {
 
 export default function App() {
   const navigate = useNavigate()
-  const { appId, apiKey, environment } = useLoaderData()
+  const { appId, apiKey, environment } = useLoaderData<typeof loader>()
 
   const savedColorMode =
     typeof window === 'undefined' ? '' : localStorage.getItem('color-mode')
@@ -58,8 +59,8 @@ export default function App() {
     navigate: (path: string) => navigate(path),
     isDarkColorMode: colorMode === 'dark',
     toggleColorMode,
-    contentClassName: `${colorMode} ${
-      colorMode === 'dark' ? 'dark darkContentClass' : 'light whiteContentClass'
+    contentClassName: `antialiased font-content ${colorMode} ${
+      colorMode === 'dark' ? 'bg-gray-900' : 'bg-white'
     }`,
   }
 
@@ -80,7 +81,7 @@ export default function App() {
       <head>
         <script dangerouslySetInnerHTML={{ __html: clientThemeCode }} />
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
         <Links />
       </head>
@@ -95,8 +96,9 @@ export default function App() {
     </html>
   )
 }
-export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error)
+
+export function ErrorBoundary() {
+  const error = useRouteError()
   return (
     <html>
       <head>
@@ -105,7 +107,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
         <Links />
       </head>
       <body>
-        <ErrorMessage error={error} />
+        <ErrorMessage error={error as Error} />
         <Scripts />
       </body>
     </html>
