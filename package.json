@@ -23,7 +23,7 @@
     "dotenv": "^16.4.2",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-bricks": "4.3.0-beta.1",
+    "react-bricks": "^4.3.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
