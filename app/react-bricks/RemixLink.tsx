@@ -3,6 +3,8 @@ import { types } from 'react-bricks/frontend'
 
 const RemixLink: types.RenderLocalLink = ({
   href,
+  target,
+  rel,
   className,
   activeClassName,
   isAdmin,
@@ -19,7 +21,7 @@ const RemixLink: types.RenderLocalLink = ({
   }
 
   return (
-    <Link to={href} className={anchorClassName}>
+    <Link to={href} target={target} rel={rel} className={anchorClassName}>
       {children}
     </Link>
   )
