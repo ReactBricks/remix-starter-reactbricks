@@ -15,7 +15,6 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.18",
     "@remix-run/css-bundle": "^2.7.2",
     "@remix-run/node": "^2.7.2",
     "@remix-run/react": "^2.7.2",
