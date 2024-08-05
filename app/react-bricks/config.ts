@@ -31,6 +31,7 @@ const config: types.ReactBricksConfig = {
   enablePreview: true,
   enablePreviewImage: true,
   enableDefaultEmbedBrick: true,
+  experimentalSidebarRepeaterItems: true
 }
 
 export default config
