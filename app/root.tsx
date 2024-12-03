@@ -1,4 +1,4 @@
-import type { LinksFunction, MetaFunction } from '@remix-run/node'
+import type { MetaFunction } from '@remix-run/node'
 import {
   Links,
   LiveReload,
@@ -15,11 +15,7 @@ import { ReactBricks } from 'react-bricks/frontend'
 
 import ErrorMessage from './components/ErrorMessage'
 import config from './react-bricks/config'
-import styles from './css/style.css'
-
-export const links: LinksFunction = () => [
-  ...(styles ? [{ rel: 'stylesheet', href: styles }] : []),
-]
+import './css/style.css'
 
 export const meta: MetaFunction = () => {
   return [{ title: 'Remix Blog Starter with React Bricks' }]
