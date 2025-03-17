@@ -23,7 +23,7 @@
     "dotenv": "^16.4.2",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
-    "react-bricks": "~4.6.1",
+    "react-bricks": "~4.6.2",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0"
   },
